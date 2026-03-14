@@ -1,2 +1,2 @@
-[pages]
 name = "subsec"
+pages_build_output_dir = "dist"
