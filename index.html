@@ -857,15 +857,15 @@
 
       /* ---- OFFER / PRICING ---- */
       .offer {
-        padding: 100px 60px;
-        max-width: 1280px;
+        padding: 100px 0;
+        max-width: 1600px;
         margin: 0 auto;
         text-align: center;
       }
 
       .pricing-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 2px;
         margin-top: 60px;
         text-align: left;
@@ -873,7 +873,7 @@
 
       .plan-card {
         background: var(--gray);
-        padding: 48px 40px;
+        padding: 40px 32px;
         display: flex;
         flex-direction: column;
         position: relative;
@@ -915,7 +915,7 @@
 
       .plan-card h3 {
         font-family: "Bebas Neue", "Bebas Neue Fallback", sans-serif;
-        font-size: 38px;
+        font-size: 32px;
         letter-spacing: 1px;
         line-height: 1;
         margin-bottom: 16px;
@@ -923,7 +923,7 @@
 
       .plan-price {
         font-family: "Bebas Neue", "Bebas Neue Fallback", sans-serif;
-        font-size: 72px;
+        font-size: 60px;
         color: var(--yellow);
         line-height: 1;
         margin-bottom: 4px;
@@ -1011,6 +1011,21 @@
 
       .plan-card.featured .plan-best strong {
         color: var(--white);
+      }
+
+      .plan-guarantee {
+        font-size: 13px;
+        color: var(--yellow);
+        font-family: "DM Mono", "DM Mono Fallback", monospace;
+        line-height: 1.6;
+        padding: 14px 16px;
+        background: rgba(255, 255, 255, 0.04);
+        border-left: 3px solid var(--yellow);
+        margin-bottom: 24px;
+      }
+
+      .plan-card.featured .plan-guarantee {
+        background: rgba(0, 0, 0, 0.15);
       }
 
       .plan-cta {
@@ -1472,6 +1487,12 @@
         color: var(--yellow);
       }
 
+      @media (max-width: 1200px) {
+        .pricing-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
       @media (max-width: 900px) {
         nav {
           padding: 20px 24px;
@@ -1498,6 +1519,12 @@
         .guarantee-grid,
         .fit-grid {
           grid-template-columns: 1fr;
+        }
+        .cases {
+          padding: 60px 0;
+        }
+        .cases-header {
+          padding: 0 24px;
         }
         .stat-ba {
           flex-wrap: wrap;
@@ -1788,8 +1815,10 @@
       <!-- CASE STUDIES -->
       <section class="cases">
         <div class="cases-inner">
-          <div class="section-label">// Real clients. Verified results.</div>
-          <h2>WHAT HAPPENS<br />WHEN WE FIX<br /><span class="text-red">YOUR STACK</span></h2>
+          <div class="cases-header">
+            <div class="section-label">// Real clients. Verified results.</div>
+            <h2>WHAT HAPPENS<br />WHEN WE FIX<br /><span class="text-red">YOUR STACK</span></h2>
+          </div>
 
           <div class="cases-grid">
             <!-- Instapage -->
@@ -2053,34 +2082,69 @@
             <a href="mailto:hello@subsecond.app" class="plan-cta plan-cta-outline">Book Your Strategy Call →</a>
           </div>
 
-          <!-- PLAN 2 — FEATURED -->
-          <div class="plan-card featured">
-            <div class="plan-badge">⭐ Most Popular</div>
+          <!-- PLAN 2 -->
+          <div class="plan-card">
             <div class="plan-label">// Plan 2</div>
-            <h3>FULL CONVERSION<br />SYSTEM</h3>
+            <h3>SPEED &amp; CONVERSION<br />OVERHAUL</h3>
             <div class="plan-price">$10,000</div>
             <div class="plan-delivery">// One-time · No retainer · 30-day delivery</div>
             <p class="plan-desc">
-              Everything Conversion Audit, plus the automation that turns your traffic into money on autopilot. This is
-              the no-brainer. For every $10k you spend here, you stop losing $140k+ a year.
+              Everything in Conversion Audit, plus we do the work. Your site rebuilt for sub-2-second performance,
+              conversion-focused UX, and automation that turns your existing traffic into revenue — without increasing
+              your ad spend.
             </p>
             <ul class="plan-features">
               <li>Everything in Conversion Audit</li>
-              <li>MCP AI landing page system — built on your design system, deployed in 60 seconds</li>
-              <li>Conversion automation flows (cart recovery, upsells, behavioural triggers)</li>
-              <li>Revenue audit with full funnel mapping</li>
+              <li>Full speed optimization — Core Web Vitals in the green</li>
+              <li>Conversion-focused UX/UI improvements on key pages</li>
+              <li>Custom automation flows (lead capture, follow-ups, behavioural triggers)</li>
+              <li>Full funnel mapping with revenue attribution</li>
               <li>Full documentation &amp; handover</li>
               <li>2 weeks post-launch support</li>
             </ul>
+            <div class="plan-guarantee">
+              Speed Guarantee: Speed Index &lt; 2s · LCP &lt; 2s · CLS &lt; 0.1 · TBT &lt; 200ms — or we keep working for free.
+            </div>
             <div class="plan-best">
-              <strong>Best for:</strong> businesses ready to fix everything in one shot and see ROI within 90 days.
+              <strong>Best for:</strong> businesses ready to fix speed and conversions in one shot — and see ROI within
+              90 days.
+            </div>
+            <a href="mailto:hello@subsecond.app" class="plan-cta plan-cta-outline">Book Your Strategy Call →</a>
+          </div>
+
+          <!-- PLAN 3 — FEATURED -->
+          <div class="plan-card featured">
+            <div class="plan-badge">⭐ Most Popular</div>
+            <div class="plan-label">// Plan 3</div>
+            <h3>SPEED + AI<br />LANDING PAGES</h3>
+            <div class="plan-price">$12,500</div>
+            <div class="plan-delivery">// One-time · 30-day delivery + system handover</div>
+            <p class="plan-desc">
+              Everything in Speed &amp; Conversion Overhaul, plus the AI-powered landing page system that lets your team
+              launch new on-brand pages in 60 seconds — no dev queue, no design sprint, no waiting.
+            </p>
+            <ul class="plan-features">
+              <li>Everything in Speed &amp; Conversion Overhaul</li>
+              <li>Custom MCP landing page system — connected to your project, your design system, your brand guidelines</li>
+              <li>Your team describes what they need → production-ready page in 60 seconds</li>
+              <li>Full CMS integration — pages editable like any other page</li>
+              <li>Team training session — how to use the system</li>
+              <li>10 landing pages generated together as part of onboarding</li>
+              <li>30 days post-launch support</li>
+            </ul>
+            <div class="plan-guarantee">
+              Speed Guarantee: Every page generated by the AI system meets the same speed benchmarks automatically.
+            </div>
+            <div class="plan-best">
+              <strong>Best for:</strong> marketing teams and agencies who launch campaigns frequently and are tired of
+              waiting 2 weeks per landing page.
             </div>
             <a href="mailto:hello@subsecond.app" class="plan-cta plan-cta-solid">Book Your Strategy Call →</a>
           </div>
 
-          <!-- PLAN 3 -->
+          <!-- PLAN 4 -->
           <div class="plan-card">
-            <div class="plan-label">// Plan 3</div>
+            <div class="plan-label">// Plan 4</div>
             <h3>GROWTH<br />PARTNER</h3>
             <div class="plan-price">$25,000</div>
             <div class="plan-delivery">// 90-day engagement · Limited to 1 client/quarter</div>
@@ -2090,7 +2154,7 @@
               years.
             </p>
             <ul class="plan-features">
-              <li>Everything in Full Conversion System</li>
+              <li>Everything in Speed + AI Landing Pages</li>
               <li>3 months of A/B testing &amp; CRO iteration</li>
               <li>Ongoing landing page production (unlimited launches via AI system)</li>
               <li>Automation flows built, refined, and expanded</li>

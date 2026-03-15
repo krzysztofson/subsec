@@ -22,7 +22,7 @@ async function findHtmlFiles(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   let files = [];
   for (const entry of entries) {
-    if (entry.name === "node_modules" || entry.name === "dist") continue;
+    if (entry.name === "node_modules" || entry.name === "dist" || entry.name === "build.js") continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) {
       files = files.concat(await findHtmlFiles(full));
@@ -31,6 +31,31 @@ async function findHtmlFiles(dir) {
     }
   }
   return files;
+}
+
+const ASSET_EXTS = new Set([
+  ".webp", ".png", ".jpg", ".jpeg", ".gif", ".svg", ".ico",
+  ".css", ".js", ".woff", ".woff2", ".ttf", ".eot",
+]);
+
+function copyAssets(dir) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  let count = 0;
+  for (const entry of entries) {
+    if (entry.name === "node_modules" || entry.name === "dist" || entry.name === "build.js") continue;
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      count += copyAssets(full);
+    } else if (ASSET_EXTS.has(path.extname(entry.name).toLowerCase())) {
+      const rel = path.relative(SRC, full);
+      const dest = path.join(DIST, rel);
+      fs.mkdirSync(path.dirname(dest), { recursive: true });
+      fs.copyFileSync(full, dest);
+      console.log(`${rel} → dist/${rel}  (copied)`);
+      count++;
+    }
+  }
+  return count;
 }
 
 async function build() {
@@ -55,7 +80,8 @@ async function build() {
     console.log(`${rel} → dist/${rel}  (${saved}% smaller)`);
   }
 
-  console.log(`\nDone. ${files.length} file(s) written to dist/`);
+  const assetCount = copyAssets(SRC);
+  console.log(`\nDone. ${files.length} HTML file(s) + ${assetCount} asset(s) written to dist/`);
 }
 
 build().catch((err) => {
