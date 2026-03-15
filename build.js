@@ -35,18 +35,18 @@ async function findHtmlFiles(dir) {
 
 const ASSET_EXTS = new Set([
   ".webp", ".png", ".jpg", ".jpeg", ".gif", ".svg", ".ico",
-  ".css", ".js", ".woff", ".woff2", ".ttf", ".eot",
+  ".css", ".js", ".woff", ".woff2", ".ttf", ".eot", ".webmanifest", ".json",
 ]);
 
 function copyAssets(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   let count = 0;
   for (const entry of entries) {
-    if (entry.name === "node_modules" || entry.name === "dist" || entry.name === "build.js") continue;
+    if (entry.name === "node_modules" || entry.name === "dist" || entry.name === "build.js" || entry.name === ".git") continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) {
       count += copyAssets(full);
-    } else if (ASSET_EXTS.has(path.extname(entry.name).toLowerCase())) {
+    } else if (ASSET_EXTS.has(path.extname(entry.name).toLowerCase()) && !entry.name.startsWith("package")) {
       const rel = path.relative(SRC, full);
       const dest = path.join(DIST, rel);
       fs.mkdirSync(path.dirname(dest), { recursive: true });

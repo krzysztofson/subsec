@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000" width="1000" height="1000"><defs>
+    <style>
+      .st0 {
+        fill: url(#linear-gradient1);
+      }
+
+      .st1 {
+        fill: url(#linear-gradient2);
+      }
+
+      .st1, .st2, .st3, .st4 {
+        mix-blend-mode: screen;
+      }
+
+      .st2 {
+        fill: url(#linear-gradient3);
+      }
+
+      .st3 {
+        fill: url(#linear-gradient5);
+      }
+
+      .st4 {
+        fill: url(#linear-gradient4);
+      }
+
+      .st5 {
+        fill: url(#linear-gradient);
+      }
+
+      .st6 {
+        isolation: isolate;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="148.32" y1="500.01" x2="851.68" y2="500.01" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffb75e"></stop>
+      <stop offset=".01" stop-color="#feb458"></stop>
+      <stop offset=".08" stop-color="#f8a93e"></stop>
+      <stop offset=".16" stop-color="#f49f28"></stop>
+      <stop offset=".25" stop-color="#f19817"></stop>
+      <stop offset=".37" stop-color="#ee920b"></stop>
+      <stop offset=".53" stop-color="#ed8f04"></stop>
+      <stop offset=".98" stop-color="#ed8f03"></stop>
+    </linearGradient>
+    <linearGradient id="linear-gradient1" x1="148.32" y1="499.99" x2="851.68" y2="499.99" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffb75e"></stop>
+      <stop offset=".21" stop-color="#fcb151"></stop>
+      <stop offset=".59" stop-color="#f5a22e"></stop>
+      <stop offset="1" stop-color="#ed8f03"></stop>
+    </linearGradient>
+    <linearGradient id="linear-gradient2" x1="533.18" y1="207.72" x2="641.36" y2="207.72" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#414042"></stop>
+      <stop offset="1" stop-color="#231f20"></stop>
+    </linearGradient>
+    <linearGradient id="linear-gradient3" x1="358.62" y1="792.27" x2="470.02" y2="792.27" xlink:href="#linear-gradient2"></linearGradient>
+    <linearGradient id="linear-gradient4" x1="148.32" y1="686.7" x2="571.65" y2="686.7" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#808285"></stop>
+      <stop offset="1" stop-color="#000"></stop>
+    </linearGradient>
+    <linearGradient id="linear-gradient5" x1="2104.11" y1="657.62" x2="2527.44" y2="657.62" gradientTransform="translate(2955.78 970.91) rotate(-180)" xlink:href="#linear-gradient4"></linearGradient>
+  </defs><g class="st6">
+    <g id="Layer_1">
+      <g>
+        <polygon class="st5" points="851.68 401.62 529.27 783.87 502.72 815.34 358.6 986.19 400.69 817.04 455.14 598.36 148.32 598.36 470.73 216.1 641.36 13.83 544.85 401.62 851.68 401.62"></polygon>
+        <path class="st0" d="M851.68,401.62l-307.09,364.06-15.32,18.19,21.46-86.31c12.58-50.4-25.55-99.2-77.52-99.2H148.32L470.73,216.1l-21.5,86.31c-12.54,50.4,25.59,99.2,77.52,99.2h324.93Z"></path>
+        <polygon class="st1" points="641.36 13.81 533.18 401.62 544.83 401.62 641.36 13.81"></polygon>
+        <polygon class="st2" points="358.62 986.17 470.02 598.36 455.14 598.36 358.62 986.17"></polygon>
+        <path class="st4" d="M565.75,710.14l-21.15,55.54-15.32,18.19,21.46-86.31c12.58-50.4-25.55-99.2-77.52-99.2H148.32l331.9-8.79c63.29-1.65,108.04,61.42,85.53,120.57Z"></path>
+        <path class="st3" d="M434.24,289.85l21.15-55.54,15.32-18.19-21.46,86.31c-12.58,50.4,25.55,99.2,77.52,99.2h324.89l-331.9,8.79c-63.29,1.65-108.04-61.42-85.53-120.57Z"></path>
+      </g>
+    </g>
+  </g></svg>
