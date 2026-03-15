@@ -1550,6 +1550,76 @@
         font-weight: 700;
       }
 
+      /* ---- CALENDLY MODAL ---- */
+      .calendly-modal-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(0px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        transition:
+          background 0.4s ease,
+          backdrop-filter 0.4s ease;
+      }
+
+      .calendly-modal-overlay.active {
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(12px);
+        pointer-events: auto;
+      }
+
+      .calendly-modal {
+        width: 100%;
+        max-width: 680px;
+        height: 90vh;
+        max-height: 780px;
+        position: relative;
+        opacity: 0;
+        transform: translateY(32px) scale(0.97);
+        transition:
+          opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .calendly-modal-overlay.active .calendly-modal {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .calendly-modal-close {
+        position: absolute;
+        top: -48px;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--white);
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+        z-index: 1;
+      }
+
+      .calendly-modal-close:hover {
+        border-color: var(--white);
+        transform: scale(1.1);
+      }
+
+      .calendly-modal .calendly-inline-widget {
+        width: 100%;
+        height: 100%;
+      }
+
       /* ---- UTILS ---- */
       .text-red {
         color: var(--red-text);
@@ -1621,6 +1691,16 @@
         .offer-box {
           padding: 56px 28px;
         }
+        .calendly-modal {
+          max-width: 100%;
+          height: 100vh;
+          max-height: 100vh;
+        }
+        .calendly-modal-close {
+          top: 12px;
+          right: 12px;
+          background: rgba(0, 0, 0, 0.6);
+        }
       }
     </style>
   </head>
@@ -1661,7 +1741,7 @@
           /></svg
         >SUB<span>SECOND</span>
       </div>
-      <a href="#offer" class="nav-cta">Book a Call →</a>
+      <a href="#" class="nav-cta" data-open-calendly>Book a Call →</a>
     </nav>
     <main>
       <!-- HERO -->
@@ -1677,11 +1757,10 @@
           We fix both problems — <strong>in 60 seconds per page.</strong>
         </p>
         <div class="hero-cta-row">
-          <a href="#offer" class="btn-primary">Stop Losing Money →</a>
+          <a href="#" class="btn-primary" data-open-calendly>Stop Losing Money →</a>
           <span class="hero-note">Starting at $4,000 · <span style="text-decoration: underline">Hard</span> speed targets or we work for free</span>
         </div>
       </section>
-
       <!-- PAIN -->
       <section class="pain">
         <div class="pain-inner">
@@ -2154,7 +2233,7 @@
             <div class="plan-best">
               <strong>Best for:</strong> businesses with a dev team that can execute — but need an expert to tell them exactly what to fix and in what order.
             </div>
-            <a href="offer.html" class="plan-cta plan-cta-outline">Book Your Strategy Call →</a>
+            <a href="#" class="plan-cta plan-cta-outline" data-open-calendly>Book Your Strategy Call →</a>
           </div>
 
           <!-- PLAN 2 -->
@@ -2178,7 +2257,7 @@
             </ul>
             <div class="plan-guarantee">Speed Guarantee: Speed Index &lt; 2s · LCP &lt; 2s · CLS &lt; 0.1 · TBT &lt; 200ms — or we keep working for free.</div>
             <div class="plan-best"><strong>Best for:</strong> businesses ready to fix speed and conversions in one shot — and see ROI within 90 days.</div>
-            <a href="offer.html" class="plan-cta plan-cta-outline">Book Your Strategy Call →</a>
+            <a href="#" class="plan-cta plan-cta-outline" data-open-calendly>Book Your Strategy Call →</a>
           </div>
 
           <!-- PLAN 3 — FEATURED -->
@@ -2205,7 +2284,7 @@
             <div class="plan-best">
               <strong>Best for:</strong> marketing teams and agencies who launch campaigns frequently and are tired of waiting 2 weeks per landing page.
             </div>
-            <a href="offer.html" class="plan-cta plan-cta-solid">Book Your Strategy Call →</a>
+            <a href="#" class="plan-cta plan-cta-solid" data-open-calendly>Book Your Strategy Call →</a>
           </div>
 
           <!-- PLAN 4 -->
@@ -2227,12 +2306,12 @@
               <li>Priority access for future work</li>
             </ul>
             <div class="plan-best"><strong>Best for:</strong> scaling businesses that want a technical growth partner, not just a vendor.</div>
-            <a href="offer.html" class="plan-cta plan-cta-outline">Book Your Strategy Call →</a>
+            <a href="#" class="plan-cta plan-cta-outline" data-open-calendly>Book Your Strategy Call →</a>
           </div>
         </div>
 
         <div class="pricing-footer">
-          <a href="offer.html" class="btn-primary" style="font-size: 18px; padding: 20px 52px">Book Your Strategy Call →</a>
+          <a href="#" class="btn-primary" data-open-calendly style="font-size: 18px; padding: 20px 52px">Book Your Strategy Call →</a>
           <p class="pricing-footer-sub">Not sure which plan fits? We'll tell you on the call — honestly, even if it means recommending the cheaper one.</p>
           <p class="pricing-footer-note">// 30-minute call · 3 spots/month across all plans</p>
         </div>
@@ -2287,7 +2366,7 @@
           Book a 30-minute strategy call. We'll tell you exactly what your site is costing you — for free. If you don't see a clear path to 3x ROI, you don't
           hire us.
         </p>
-        <a href="offer.html" class="btn-primary" style="font-size: 18px; padding: 20px 56px">Get My Free Revenue Audit →</a>
+        <a href="#" class="btn-primary" data-open-calendly style="font-size: 18px; padding: 20px 56px">Get My Free Revenue Audit →</a>
         <p style="color: var(--muted); font-size: 14px; margin-top: 20px; font-family: 'DM Mono', monospace">
           // 30-minute call · No pitch until you see the numbers · 3 spots/month
         </p>
@@ -2320,6 +2399,17 @@
       <span>© 2026 · Built fast. Converts faster.</span>
       <span><a href="#" data-contact data-contact-show></a></span>
     </footer>
+    <!-- Calendly Modal -->
+    <div class="calendly-modal-overlay" id="calendlyModal">
+      <div class="calendly-modal">
+        <button class="calendly-modal-close" aria-label="Close">&times;</button>
+        <div
+          class="calendly-inline-widget"
+          data-url="https://calendly.com/hello-subsecond/30min?hide_gdpr_banner=1&background_color=0a0a0a&text_color=f5f2ed&primary_color=b82318"
+        ></div>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" defer></script>
     <script>
       (function () {
         var p = ['hello', 'subsecond', 'app'];
@@ -2327,6 +2417,34 @@
         document.querySelectorAll('[data-contact]').forEach(function (el) {
           el.href = 'mai' + 'lto:' + a;
           if (el.hasAttribute('data-contact-show')) el.textContent = a;
+        });
+
+        var modal = document.getElementById('calendlyModal');
+        var closeBtn = modal.querySelector('.calendly-modal-close');
+
+        function openCalendly(e) {
+          if (e) e.preventDefault();
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeCalendly() {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+
+        closeBtn.addEventListener('click', closeCalendly);
+
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) closeCalendly();
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeCalendly();
+        });
+
+        document.querySelectorAll('[data-open-calendly]').forEach(function (el) {
+          el.addEventListener('click', openCalendly);
         });
       })();
     </script>
