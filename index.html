@@ -10,6 +10,8 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://assets.calendly.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap"
       rel="stylesheet"
@@ -1704,17 +1706,6 @@
       }
     </style>
   </head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FPHMP823V"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'G-0FPHMP823V');
-  </script>
   <body>
     <!-- NAV -->
     <nav>
@@ -2409,7 +2400,6 @@
         ></div>
       </div>
     </div>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" defer></script>
     <script>
       (function () {
         var p = ['hello', 'subsecond', 'app'];
@@ -2421,9 +2411,19 @@
 
         var modal = document.getElementById('calendlyModal');
         var closeBtn = modal.querySelector('.calendly-modal-close');
+        var calendlyLoaded = false;
+
+        function loadCalendlyWidget() {
+          if (calendlyLoaded) return;
+          calendlyLoaded = true;
+          var s = document.createElement('script');
+          s.src = 'https://assets.calendly.com/assets/external/widget.js';
+          document.body.appendChild(s);
+        }
 
         function openCalendly(e) {
           if (e) e.preventDefault();
+          loadCalendlyWidget();
           modal.classList.add('active');
           document.body.style.overflow = 'hidden';
         }
@@ -2446,6 +2446,25 @@
         document.querySelectorAll('[data-open-calendly]').forEach(function (el) {
           el.addEventListener('click', openCalendly);
         });
+      })();
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      (function () {
+        function loadGA() {
+          gtag('js', new Date());
+          gtag('config', 'G-0FPHMP823V');
+          var s = document.createElement('script');
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-0FPHMP823V';
+          s.async = true;
+          document.head.appendChild(s);
+        }
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadGA, { timeout: 3000 });
+        } else {
+          setTimeout(loadGA, 2500);
+        }
       })();
     </script>
   </body>
