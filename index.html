@@ -52,6 +52,7 @@
       @font-face {
         font-family: 'Bebas Neue Fallback';
         src: local('Arial'), local('Helvetica Neue'), local('Helvetica');
+        font-display: swap;
         size-adjust: 64.5%;
         ascent-override: 118%;
         descent-override: 22%;
@@ -61,6 +62,7 @@
       @font-face {
         font-family: 'DM Sans Fallback';
         src: local('Arial'), local('Helvetica Neue'), local('Helvetica');
+        font-display: swap;
         size-adjust: 105.5%;
         ascent-override: 94%;
         descent-override: 26%;
@@ -70,6 +72,7 @@
       @font-face {
         font-family: 'DM Mono Fallback';
         src: local('Courier New'), local('Courier');
+        font-display: swap;
         size-adjust: 112%;
         ascent-override: 88%;
         descent-override: 22%;
@@ -107,6 +110,8 @@
         font-size: 18px;
         line-height: 1.6;
         overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
 
       /* ---- NAV ---- */
@@ -172,7 +177,7 @@
       }
 
       nav .logo-bolt {
-        animation-delay: 0.3s;
+        animation-delay: 1s;
       }
 
       .nav-cta {
@@ -2400,7 +2405,7 @@
         ></div>
       </div>
     </div>
-    <script>
+    <script defer>
       (function () {
         var p = ['hello', 'subsecond', 'app'];
         var a = p[0] + '@' + p[1] + '.' + p[2];
@@ -2420,6 +2425,8 @@
           s.src = 'https://assets.calendly.com/assets/external/widget.js';
           document.body.appendChild(s);
         }
+
+        setTimeout(loadCalendlyWidget, 3500);
 
         function openCalendly(e) {
           if (e) e.preventDefault();
@@ -2448,9 +2455,11 @@
         });
       })();
     </script>
-    <script>
+    <script defer>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       (function () {
         function loadGA() {
           gtag('js', new Date());

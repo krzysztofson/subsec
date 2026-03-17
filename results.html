@@ -1,0 +1,1192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Site Audit Results — SubSecond</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Your personalized site audit results from SubSecond. See your Lighthouse scores, Core Web Vitals, and the exact performance targets we guarantee." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://quickchart.io" />
+    <link rel="dns-prefetch" href="https://assets.calendly.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <noscript
+      ><link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet"
+    /></noscript>
+    <link rel="icon" type="image/png" href="/fav/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/fav/favicon.svg" />
+    <link rel="shortcut icon" href="/fav/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/fav/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="SubSecond" />
+    <link rel="manifest" href="/fav/site.webmanifest" />
+    <style>
+      @font-face {
+        font-family: 'Bebas Neue Fallback';
+        src: local('Arial'), local('Helvetica Neue'), local('Helvetica');
+        font-display: swap;
+        size-adjust: 64.5%;
+        ascent-override: 118%;
+        descent-override: 22%;
+        line-gap-override: 0%;
+      }
+      @font-face {
+        font-family: 'DM Sans Fallback';
+        src: local('Arial'), local('Helvetica Neue'), local('Helvetica');
+        font-display: swap;
+        size-adjust: 105.5%;
+        ascent-override: 94%;
+        descent-override: 26%;
+        line-gap-override: 0%;
+      }
+      @font-face {
+        font-family: 'DM Mono Fallback';
+        src: local('Courier New'), local('Courier');
+        font-display: swap;
+        size-adjust: 112%;
+        ascent-override: 88%;
+        descent-override: 22%;
+        line-gap-override: 0%;
+      }
+
+      :root {
+        --black: #0a0a0a;
+        --white: #f5f2ed;
+        --red-text: #ef4136;
+        --red-bg: #b82318;
+        --yellow: #f5c518;
+        --gray: #1a1a1a;
+        --mid: #2e2e2e;
+        --muted: #888;
+        --green: #0cce6b;
+        --orange: #ffa400;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--black);
+        color: var(--white);
+        font-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
+        font-size: 18px;
+        line-height: 1.6;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* ---- NAV ---- */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 60px;
+        border-bottom: 1px solid #222;
+        position: sticky;
+        top: 0;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(8px);
+        z-index: 100;
+      }
+      .logo {
+        font-family: 'Bebas Neue', 'Bebas Neue Fallback', sans-serif;
+        font-size: 28px;
+        letter-spacing: 2px;
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        text-decoration: none;
+      }
+      .logo span {
+        color: var(--red-text);
+      }
+      .logo-bolt {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        flex-shrink: 0;
+      }
+      .nav-cta {
+        background: var(--red-bg);
+        color: var(--white);
+        padding: 12px 28px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: background 0.2s;
+      }
+      .nav-cta:hover {
+        background: #9c1e14;
+      }
+
+      /* ---- LAYOUT ---- */
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 60px;
+      }
+      .section-label {
+        font-family: 'DM Mono', 'DM Mono Fallback', monospace;
+        font-size: 12px;
+        color: var(--red-text);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+      }
+      h1 {
+        font-family: 'Bebas Neue', 'Bebas Neue Fallback', sans-serif;
+        font-size: clamp(48px, 7vw, 88px);
+        line-height: 0.95;
+        letter-spacing: 2px;
+        margin-bottom: 24px;
+      }
+      h2 {
+        font-family: 'Bebas Neue', 'Bebas Neue Fallback', sans-serif;
+        font-size: clamp(36px, 5vw, 64px);
+        line-height: 0.95;
+        letter-spacing: 1px;
+        margin-bottom: 40px;
+      }
+      .text-red {
+        color: var(--red-text);
+      }
+      .text-green {
+        color: var(--green);
+      }
+
+      /* ---- HERO ---- */
+      .results-hero {
+        padding: 80px 60px 60px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .results-hero p {
+        font-size: 20px;
+        color: #aaa;
+        max-width: 680px;
+        line-height: 1.7;
+      }
+
+      /* ---- VIDEO ---- */
+      .video-section {
+        padding: 0 60px 80px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .video-wrap {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        background: var(--gray);
+        border: 1px solid var(--mid);
+      }
+      .video-wrap iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* ---- SCORES ---- */
+      .scores-section {
+        background: var(--gray);
+        padding: 80px 60px;
+        border-top: 4px solid var(--red-text);
+      }
+      .scores-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .scores-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 2px;
+        margin-top: 48px;
+      }
+      .score-card {
+        background: var(--black);
+        padding: 48px 32px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .score-card img {
+        width: 160px;
+        height: 160px;
+      }
+      .score-label {
+        font-family: 'Bebas Neue', 'Bebas Neue Fallback', sans-serif;
+        font-size: 28px;
+        letter-spacing: 1px;
+        color: var(--white);
+      }
+      .score-change {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+      .score-change-arrow {
+        font-size: 20px;
+        color: var(--muted);
+        line-height: 1;
+      }
+      .score-change-target {
+        font-family: 'Bebas Neue', 'Bebas Neue Fallback', sans-serif;
+        font-size: 36px;
+        color: var(--green);
+        line-height: 1;
+      }
+      .score-change-label {
+        font-family: 'DM Mono', 'DM Mono Fallback', monospace;
+        font-size: 10px;
+        color: var(--green);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      .score-improvement {
+        font-family: 'DM Mono', 'DM Mono Fallback', monospace;
+        font-size: 14px;
+        padding: 4px 14px;
+        background: rgba(12, 206, 107, 0.1);
+        color: var(--green);
+        letter-spacing: 1px;
+      }
+      .after-note {
+        font-family: 'DM Mono', 'DM Mono Fallback', monospace;
+        font-size: 12px;
+        color: var(--green);
+        text-align: center;
+        margin-top: 12px;
+        letter-spacing: 1px;
+      }
+
+      /* ---- METRICS ---- */
+      .metrics-section {
+        padding: 80px 60px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 2px;
+        margin-top: 48px;
+      }
+      .metric-card {
+        background: var(--gray);
+        padding: 36px 24px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+      .metric-name {
+        font-family: 'DM Mono', 'DM Mono Fallback', monospace;
+        font-size: 12px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      .metric-current {
+        font-family: 'Bebas Neue', 'Bebas Neue Fallback', sans-serif;
+        font-size: 48px;
+        line-height: 1;
+      }
+      .metric-current.bad {
+        color: var(--red-text);
+      }
+      .metric-current.mid-score {
+        color: var(--orange);
+      }
+      .metric-current.good {
+        color: var(--green);
+      }
+      .metric-arrow {
+        font-size: 20px;
+        color: var(--muted);
+        line-height: 1;
+      }
+      .metric-target {
+        font-family: 'Bebas Neue', 'Bebas Neue Fallback', sans-serif;
+        font-size: 36px;
+        color: var(--green);
+        line-height: 1;
+      }
+      .metric-target-label {
+        font-family: 'DM Mono', 'DM Mono Fallback', monospace;
+        font-size: 10px;
+        color: var(--green);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      .metric-pct {
+        font-family: 'DM Mono', 'DM Mono Fallback', monospace;
+        font-size: 13px;
+        padding: 4px 12px;
+        background: rgba(12, 206, 107, 0.1);
+        color: var(--green);
+        letter-spacing: 1px;
+        white-space: nowrap;
+      }
+      .metric-guarantee {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.5;
+        margin-top: auto;
+      }
+
+      /* ---- WHY IT MATTERS ---- */
+      .why-section {
+        background: var(--gray);
+        padding: 80px 60px;
+        border-top: 4px solid var(--red-text);
+      }
+      .why-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .why-sub {
+        font-size: 19px;
+        color: #aaa;
+        max-width: 680px;
+        line-height: 1.7;
+        margin-bottom: 56px;
+      }
+      .why-sub strong {
+        color: var(--white);
+      }
+      .math-box {
+        background: var(--yellow);
+        color: var(--black);
+        padding: 48px;
+        margin-bottom: 48px;
+      }
+      .math-box h3 {
+        font-family: 'Bebas Neue', 'Bebas Neue Fallback', sans-serif;
+        font-size: 40px;
+        line-height: 1;
+        margin-bottom: 28px;
+      }
+      .math-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 0;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+        font-weight: 500;
+        font-size: 16px;
+      }
+      .math-row:last-of-type {
+        border-bottom: none;
+      }
+      .math-val {
+        font-family: 'DM Mono', 'DM Mono Fallback', monospace;
+        font-weight: 700;
+        font-size: 20px;
+      }
+      .math-verdict {
+        margin-top: 24px;
+        font-family: 'Bebas Neue', 'Bebas Neue Fallback', sans-serif;
+        font-size: 36px;
+        color: var(--red-bg);
+      }
+      .math-note {
+        margin-top: 16px;
+        font-size: 13px;
+        color: rgba(0, 0, 0, 0.6);
+        line-height: 1.6;
+      }
+      .proof-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+        margin-bottom: 48px;
+      }
+      .proof-card {
+        background: var(--black);
+        padding: 36px;
+        border-left: 3px solid var(--red-text);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .proof-card.full {
+        grid-column: 1 / -1;
+      }
+      .proof-src {
+        font-family: 'DM Mono', 'DM Mono Fallback', monospace;
+        font-size: 11px;
+        color: #f06458;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+      }
+      .proof-quote {
+        font-size: 16px;
+        color: var(--white);
+        font-style: italic;
+        line-height: 1.7;
+      }
+      .proof-quote::before {
+        content: '\201C';
+        color: var(--red-text);
+        font-style: normal;
+        margin-right: 2px;
+      }
+      .proof-quote::after {
+        content: '\201D';
+        color: var(--red-text);
+        font-style: normal;
+        margin-left: 2px;
+      }
+      .proof-link {
+        font-family: 'DM Mono', 'DM Mono Fallback', monospace;
+        font-size: 11px;
+        color: #9e9e9e;
+        text-decoration: none;
+        line-height: 1.4;
+        transition: color 0.2s;
+        align-self: flex-start;
+      }
+      .proof-link:hover {
+        color: var(--white);
+      }
+      .cases-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+      }
+      .case-result {
+        background: var(--black);
+        padding: 40px;
+        text-align: center;
+      }
+      .case-client {
+        font-family: 'DM Mono', 'DM Mono Fallback', monospace;
+        font-size: 11px;
+        color: var(--yellow);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+      }
+      .case-stat {
+        font-family: 'Bebas Neue', 'Bebas Neue Fallback', sans-serif;
+        font-size: 56px;
+        color: var(--green);
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+      .case-desc {
+        font-size: 14px;
+        color: #aaa;
+        line-height: 1.5;
+      }
+      @media (max-width: 900px) {
+        .why-section {
+          padding: 60px 24px;
+        }
+        .math-box {
+          padding: 32px 24px;
+        }
+        .proof-grid,
+        .cases-row {
+          grid-template-columns: 1fr;
+        }
+        .proof-card.full {
+          grid-column: auto;
+        }
+      }
+
+      /* ---- MCP SECTION ---- */
+      .mcp-section {
+        padding: 80px 60px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .mcp-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .mcp-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+        margin-top: 48px;
+      }
+      .mcp-text {
+        background: var(--gray);
+        padding: 48px 40px;
+      }
+      .mcp-text p {
+        font-size: 17px;
+        color: #aaa;
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+      .mcp-text p strong {
+        color: var(--white);
+      }
+      .mcp-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+      .mcp-tag {
+        background: var(--mid);
+        color: var(--yellow);
+        font-family: 'DM Mono', 'DM Mono Fallback', monospace;
+        font-size: 12px;
+        padding: 6px 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .mcp-stats {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .mcp-stat {
+        background: var(--gray);
+        padding: 40px;
+        text-align: center;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .mcp-stat-val {
+        font-family: 'Bebas Neue', 'Bebas Neue Fallback', sans-serif;
+        font-size: 64px;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+      .mcp-stat:first-child .mcp-stat-val {
+        color: var(--green);
+      }
+      .mcp-stat:last-child .mcp-stat-val {
+        color: var(--red-text);
+        text-decoration: line-through;
+        text-decoration-thickness: 3px;
+      }
+      .mcp-stat-label {
+        font-size: 14px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      @media (max-width: 900px) {
+        .mcp-section {
+          padding: 60px 24px;
+        }
+        .mcp-content {
+          grid-template-columns: 1fr;
+        }
+        .mcp-stats {
+          flex-direction: row;
+        }
+      }
+
+      /* ---- CTA BRIDGE ---- */
+      .cta-bridge {
+        background: var(--red-bg);
+        padding: 80px 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-bridge::before {
+        content: '///';
+        position: absolute;
+        right: -40px;
+        top: -60px;
+        font-family: 'Bebas Neue', 'Bebas Neue Fallback', sans-serif;
+        font-size: 400px;
+        color: rgba(0, 0, 0, 0.08);
+        line-height: 1;
+        pointer-events: none;
+      }
+      .cta-bridge-inner {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+      .cta-bridge h2 {
+        color: var(--white);
+        margin-bottom: 20px;
+      }
+      .cta-bridge p {
+        font-size: 19px;
+        color: rgba(255, 255, 255, 0.95);
+        max-width: 600px;
+        margin: 0 auto 16px;
+        line-height: 1.7;
+      }
+      .cta-bridge .guarantee-note {
+        font-family: 'DM Mono', 'DM Mono Fallback', monospace;
+        font-size: 14px;
+        color: #fff;
+        margin-bottom: 0;
+      }
+
+      /* ---- CALENDLY ---- */
+      .calendly-section {
+        padding: 80px 60px;
+        max-width: 1100px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .calendly-section h2 {
+        margin-bottom: 16px;
+      }
+      .calendly-section p {
+        color: #aaa;
+        font-size: 18px;
+        max-width: 560px;
+        margin: 0 auto 48px;
+        line-height: 1.7;
+      }
+      .calendly-embed-wrap .calendly-inline-widget {
+        width: 100%;
+        height: 900px;
+      }
+      .calendly-note {
+        margin-top: 24px;
+        font-family: 'DM Mono', 'DM Mono Fallback', monospace;
+        font-size: 14px;
+        color: var(--muted);
+      }
+
+      /* ---- FOOTER ---- */
+      footer {
+        border-top: 1px solid #222;
+        padding: 40px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      footer a {
+        color: var(--white);
+        text-decoration: none;
+      }
+
+      /* ---- RESPONSIVE ---- */
+      @media (max-width: 900px) {
+        nav {
+          padding: 20px 24px;
+        }
+        .results-hero,
+        .video-section,
+        .scores-section,
+        .metrics-section,
+        .cta-bridge,
+        .calendly-section {
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+        .scores-grid {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        .metrics-grid {
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        }
+        footer {
+          flex-direction: column;
+          gap: 16px;
+          text-align: center;
+          padding: 40px 24px;
+        }
+      }
+      @media (max-width: 600px) {
+        .metrics-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="logo">
+        <svg class="logo-bolt" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bl1" x1="148.32" y1="500.01" x2="851.68" y2="500.01" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#ffb75e" />
+              <stop offset=".25" stop-color="#f19817" />
+              <stop offset=".98" stop-color="#ed8f03" />
+            </linearGradient>
+            <linearGradient id="bl2" x1="148.32" y1="499.99" x2="851.68" y2="499.99" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#ffb75e" />
+              <stop offset="1" stop-color="#ed8f03" />
+            </linearGradient>
+          </defs>
+          <polygon
+            fill="url(#bl1)"
+            points="851.68 401.62 529.27 783.87 502.72 815.34 358.6 986.19 400.69 817.04 455.14 598.36 148.32 598.36 470.73 216.1 641.36 13.83 544.85 401.62 851.68 401.62"
+          />
+          <path
+            fill="url(#bl2)"
+            d="M851.68,401.62l-307.09,364.06-15.32,18.19,21.46-86.31c12.58-50.4-25.55-99.2-77.52-99.2H148.32L470.73,216.1l-21.5,86.31c-12.54,50.4,25.59,99.2,77.52,99.2h324.93Z"
+          />
+        </svg>
+        SUB<span>SECOND</span>
+      </a>
+      <a href="#calendly" class="nav-cta">Book a Call →</a>
+    </nav>
+
+    <main>
+      <section class="results-hero">
+        <div class="section-label">// Your site audit</div>
+        <h1 id="heroTitle">YOUR <span class="text-red">RESULTS</span></h1>
+        <p id="heroSub">We've analyzed your site's performance. Here's exactly where you stand — and where we'll take you.</p>
+      </section>
+
+      <section class="video-section" id="videoSection" style="display: none">
+        <div class="video-wrap">
+          <iframe
+            id="videoFrame"
+            title="Your personalized site audit video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+
+      <section class="scores-section">
+        <div class="scores-inner">
+          <div class="section-label">// Lighthouse scores</div>
+          <h2>CURRENT<br />SCORES</h2>
+          <div class="scores-grid" id="scoresGrid"></div>
+        </div>
+      </section>
+
+      <section class="metrics-section">
+        <div class="section-label">// Core Web Vitals</div>
+        <h2>THE NUMBERS<br />THAT <span class="text-red">MATTER</span></h2>
+        <div class="metrics-grid" id="metricsGrid"></div>
+      </section>
+
+      <section class="why-section">
+        <div class="why-inner">
+          <div class="section-label">// The research backs it up</div>
+          <h2>SPEED ISN'T VANITY.<br />IT'S <span class="text-red">REVENUE.</span></h2>
+
+          <div class="proof-grid">
+            <div class="proof-card">
+              <div class="proof-src">Google / Think with Google</div>
+              <p class="proof-quote">Over half of all mobile site visits are abandoned if the page doesn't load within 3 seconds.</p>
+              <a class="proof-link" href="https://www.thinkwithgoogle.com/_qs/documents/2340/bc22e_The_Need_for_Mobile_Speed_-_FINAL_1.pdf" target="_blank" rel="noopener">thinkwithgoogle.com → The Need for Mobile Speed ↗</a>
+            </div>
+            <div class="proof-card">
+              <div class="proof-src">Google / Think with Google</div>
+              <p class="proof-quote">A one-second delay in mobile load times can impact conversion rates by up to 20%.</p>
+              <a class="proof-link" href="https://www.thinkwithgoogle.com/_qs/documents/7353/Mobile_Site_Speed_Playbook.pdf" target="_blank" rel="noopener">thinkwithgoogle.com → Mobile Site Speed Playbook ↗</a>
+            </div>
+            <div class="proof-card">
+              <div class="proof-src">Portent Research</div>
+              <p class="proof-quote">A site that loads in 1 second has an e-commerce conversion rate 2.5x higher than a site that loads in 5 seconds.</p>
+              <a class="proof-link" href="https://www.portent.com/blog/analytics/research-site-speed-hurting-everyones-revenue.htm" target="_blank" rel="noopener">portent.com → Site Speed &amp; Revenue Research ↗</a>
+            </div>
+            <div class="proof-card">
+              <div class="proof-src">web.dev — Renault Case Study</div>
+              <p class="proof-quote">A 1 second improvement in LCP resulted in a 13% increase in conversions and a 14 percentage point decrease in bounce rate.</p>
+              <a class="proof-link" href="https://web.dev/case-studies/renault" target="_blank" rel="noopener">web.dev/case-studies/renault ↗</a>
+            </div>
+            <div class="proof-card full">
+              <div class="proof-src">Deloitte Digital + Google — Milliseconds Make Millions</div>
+              <p class="proof-quote">With a 0.1s improvement in site speed, we observed that retail consumers spent almost 10% more, while conversions grew by 8% for retail sites and by 10% for travel sites on average.</p>
+              <a class="proof-link" href="https://www.thinkwithgoogle.com/_qs/documents/9757/Milliseconds_Make_Millions_report_hQYAbZJ.pdf" target="_blank" rel="noopener">thinkwithgoogle.com → Milliseconds Make Millions ↗</a>
+            </div>
+          </div>
+
+          <div class="section-label" style="margin-top: 56px">// Run the numbers</div>
+          <h2>THE MATH IS<br />EMBARRASSINGLY<br />SIMPLE.</h2>
+          <div class="math-box">
+            <h3>IF YOUR BUSINESS DOES $500K/YEAR:</h3>
+            <div class="math-row">
+              <span>Current conversion rate (industry avg)</span>
+              <span class="math-val">2.1%</span>
+            </div>
+            <div class="math-row">
+              <span>After speed optimization (conservative)*</span>
+              <span class="math-val">2.7%</span>
+            </div>
+            <div class="math-row">
+              <span>Revenue increase</span>
+              <span class="math-val">+$143,000/yr</span>
+            </div>
+            <div class="math-row">
+              <span>Our fee</span>
+              <span class="math-val">$10,000</span>
+            </div>
+            <div class="math-verdict">ROI: 1,430% — IN YEAR ONE.</div>
+            <p class="math-note">
+              *Conservative estimate. Portent research shows sites loading in 1s convert at 2.5× the rate of sites loading in 5s. We model a 29% uplift — well below the observed ceiling.
+            </p>
+          </div>
+
+          <div class="section-label" style="margin-top: 56px">// Real results from our clients</div>
+          <div class="cases-row">
+            <div class="case-result">
+              <div class="case-client">Instapage · SaaS</div>
+              <div class="case-stat">+80%</div>
+              <p class="case-desc">Speed Index improvement.<br />Lighthouse Performance 99. FCP &amp; LCP 0.8s.<br />Measurable CVR uplift.</p>
+            </div>
+            <div class="case-result">
+              <div class="case-client">Safe Family · E-commerce</div>
+              <div class="case-stat">+75%</div>
+              <p class="case-desc">Speed Index improvement.<br />Lighthouse Performance 95. LCP 1.3s.<br />1M+ users, significantly higher conversions.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mcp-section">
+        <div class="mcp-inner">
+          <div class="section-label">// But there's more</div>
+          <h2>AI LANDING PAGES<br />IN <span class="text-red">60 SECONDS</span></h2>
+          <div class="mcp-content">
+            <div class="mcp-text">
+              <p>
+                Not templates. Using MCP automation, we connect an AI system directly to
+                <strong>your design system, component library, and brand guidelines.</strong>
+              </p>
+              <p>
+                Every page uses your exact tokens, typography, and spacing —
+                indistinguishable from something your design team built by hand.
+                Deployed in 60 seconds, not two weeks.
+              </p>
+              <div class="mcp-tags">
+                <span class="mcp-tag">MCP Automation</span>
+                <span class="mcp-tag">Design System Native</span>
+                <span class="mcp-tag">A/B Ready</span>
+              </div>
+            </div>
+            <div class="mcp-stats">
+              <div class="mcp-stat">
+                <span class="mcp-stat-val">60s</span>
+                <span class="mcp-stat-label">To deploy a new<br />on-brand page</span>
+              </div>
+              <div class="mcp-stat">
+                <span class="mcp-stat-val">2wks</span>
+                <span class="mcp-stat-label">What your team<br />currently takes</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-bridge">
+        <div class="cta-bridge-inner">
+          <div class="section-label" style="color: rgba(255, 255, 255, 0.85)">// Our guarantee</div>
+          <h2>WE HIT THESE<br />TARGETS, OR<br /><span style="color: var(--yellow)">YOU DON'T PAY.</span></h2>
+          <p>Every metric above comes with a hard, contractual target. If we miss even one, we keep working until we hit it. For free.</p>
+          <p class="guarantee-note">Speed Index &lt; 2s · LCP &lt; 2s · CLS &lt; 0.1 · TBT &lt; 200ms</p>
+        </div>
+      </section>
+
+      <section class="calendly-section" id="calendly">
+        <div class="section-label">// Next step</div>
+        <h2>LET'S FIX THIS<br /><span class="text-red">TOGETHER.</span></h2>
+        <p>Book a 30-minute strategy call. We'll walk you through these results and show you the exact plan to hit every target.</p>
+        <div class="calendly-embed-wrap">
+          <div
+            class="calendly-inline-widget"
+            data-url="https://calendly.com/hello-subsecond/30min?hide_gdpr_banner=1&background_color=0a0a0a&text_color=f5f2ed&primary_color=b82318"
+            style="min-width: 320px; height: 900px"
+          ></div>
+        </div>
+        <p class="calendly-note">This call is free. No pitch until you see the numbers.</p>
+      </section>
+    </main>
+
+    <footer>
+      <a href="/" class="logo">
+        <svg class="logo-bolt" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bl3" x1="148.32" y1="500.01" x2="851.68" y2="500.01" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#ffb75e" />
+              <stop offset=".25" stop-color="#f19817" />
+              <stop offset=".98" stop-color="#ed8f03" />
+            </linearGradient>
+            <linearGradient id="bl4" x1="148.32" y1="499.99" x2="851.68" y2="499.99" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#ffb75e" />
+              <stop offset="1" stop-color="#ed8f03" />
+            </linearGradient>
+          </defs>
+          <polygon
+            fill="url(#bl3)"
+            points="851.68 401.62 529.27 783.87 502.72 815.34 358.6 986.19 400.69 817.04 455.14 598.36 148.32 598.36 470.73 216.1 641.36 13.83 544.85 401.62 851.68 401.62"
+          />
+          <path
+            fill="url(#bl4)"
+            d="M851.68,401.62l-307.09,364.06-15.32,18.19,21.46-86.31c12.58-50.4-25.55-99.2-77.52-99.2H148.32L470.73,216.1l-21.5,86.31c-12.54,50.4,25.59,99.2,77.52,99.2h324.93Z"
+          />
+        </svg>
+        SUB<span>SECOND</span>
+      </a>
+      <span>© 2026 · Built fast. Converts faster.</span>
+      <span><a href="#" data-contact data-contact-show></a></span>
+    </footer>
+
+    <script defer>
+      (function () {
+        var p = ['hello', 'subsecond', 'app'];
+        var a = p[0] + '@' + p[1] + '.' + p[2];
+        document.querySelectorAll('[data-contact]').forEach(function (el) {
+          el.href = 'mai' + 'lto:' + a;
+          if (el.hasAttribute('data-contact-show')) el.textContent = a;
+        });
+      })();
+    </script>
+
+    <script defer>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+
+        function g(key) {
+          return params.get(key);
+        }
+        function n(key) {
+          var v = g(key);
+          return v !== null ? parseFloat(v) : null;
+        }
+
+        var name = g('name');
+        var videoId = g('video-id');
+        var perfScore = n('performance_score');
+        var a11yScore = n('accessibility_score');
+        var seoScore = n('seo_score');
+        var fcpS = n('fcp_s');
+        var lcpS = n('lcp_s');
+        var cls = n('cls');
+        var tbtMs = n('tbt_ms');
+        var speedIndexS = n('speed_index_s');
+
+        if (name) {
+          document.getElementById('heroTitle').innerHTML = sanitize(name).toUpperCase() + ', HERE ARE YOUR <span class="text-red">RESULTS</span>';
+          document.getElementById('heroSub').textContent = "We've analyzed your site's performance. Here's exactly where you stand — and where we'll take you.";
+        }
+
+        if (videoId) {
+          var section = document.getElementById('videoSection');
+          section.style.display = '';
+          document.getElementById('videoFrame').src = 'https://www.youtube.com/embed/' + encodeURIComponent(videoId) + '?rel=0&modestbranding=1';
+        }
+
+        function sanitize(str) {
+          var d = document.createElement('div');
+          d.textContent = str;
+          return d.innerHTML;
+        }
+
+        function scoreColor(score) {
+          if (score >= 90) return 'rgb(12,206,107)';
+          if (score >= 50) return 'rgb(255,164,0)';
+          return 'rgb(255,78,66)';
+        }
+
+        function scoreClass(score) {
+          if (score >= 90) return 'good';
+          if (score >= 50) return 'mid-score';
+          return 'bad';
+        }
+
+        function gaugeUrl(score) {
+          var color = scoreColor(score);
+          var cfg =
+            "{type:'radialGauge',data:{datasets:[{data:[" +
+            score +
+            "],backgroundColor:'" +
+            color +
+            "',borderWidth:0}]},options:{trackColor:'rgb(40,40,40)',roundedCorners:true,centerPercentage:80,centerArea:{text:(val)=>val,fontSize:48,fontColor:'" +
+            color +
+            "'}}}";
+          return 'https://quickchart.io/chart?w=200&h=200&bkg=transparent&c=' + encodeURIComponent(cfg);
+        }
+
+        function pctImprovement(current, target) {
+          if (current <= 0) return 0;
+          return Math.round(((current - target) / current) * 100);
+        }
+
+        var SCORE_TARGET = 90;
+        var scoresGrid = document.getElementById('scoresGrid');
+        var scores = [
+          { label: 'Performance', value: perfScore },
+          { label: 'Accessibility', value: a11yScore },
+          { label: 'SEO', value: seoScore },
+        ];
+
+        var hasScoreToImprove = false;
+        scores.forEach(function (s) {
+          if (s.value === null || s.value >= SCORE_TARGET) return;
+          hasScoreToImprove = true;
+          var card = document.createElement('div');
+          card.className = 'score-card';
+
+          var img = document.createElement('img');
+          img.src = gaugeUrl(s.value);
+          img.alt = s.label + ' score: ' + s.value;
+          img.width = 160;
+          img.height = 160;
+          card.appendChild(img);
+
+          var label = document.createElement('div');
+          label.className = 'score-label';
+          label.textContent = s.label.toUpperCase();
+          card.appendChild(label);
+
+          var change = document.createElement('div');
+          change.className = 'score-change';
+          var arrow = document.createElement('div');
+          arrow.className = 'score-change-arrow';
+          arrow.textContent = '↓';
+          change.appendChild(arrow);
+          var targetVal = document.createElement('div');
+          targetVal.className = 'score-change-target';
+          targetVal.textContent = '90+';
+          change.appendChild(targetVal);
+          var afterLabel = document.createElement('div');
+          afterLabel.className = 'score-change-label';
+          afterLabel.textContent = 'after our changes';
+          change.appendChild(afterLabel);
+          card.appendChild(change);
+
+          var imp = document.createElement('div');
+          imp.className = 'score-improvement';
+          var diff = SCORE_TARGET - s.value;
+          imp.textContent = '+' + diff + ' pts';
+          card.appendChild(imp);
+
+          scoresGrid.appendChild(card);
+        });
+        if (hasScoreToImprove) {
+          var note = document.createElement('div');
+          note.className = 'after-note';
+          note.textContent = '// Green values = guaranteed results after our optimization';
+          scoresGrid.parentNode.appendChild(note);
+        }
+
+        var TARGETS = {
+          fcp: { target: 1.8, unit: 's', label: 'FCP', fullName: 'First Contentful Paint', goodMax: 1.8, midMax: 3 },
+          lcp: { target: 2, unit: 's', label: 'LCP', fullName: 'Largest Contentful Paint', goodMax: 2.5, midMax: 4 },
+          cls: { target: 0.1, unit: '', label: 'CLS', fullName: 'Cumulative Layout Shift', goodMax: 0.1, midMax: 0.25 },
+          tbt: { target: 200, unit: 'ms', label: 'TBT', fullName: 'Total Blocking Time', goodMax: 200, midMax: 600 },
+          si: { target: 2, unit: 's', label: 'SI', fullName: 'Speed Index', goodMax: 3.4, midMax: 5.8 },
+        };
+
+        function metricClass(current, goodMax, midMax) {
+          if (current <= goodMax) return 'good';
+          if (current <= midMax) return 'mid-score';
+          return 'bad';
+        }
+
+        function formatVal(val, unit) {
+          if (unit === 'ms') return Math.round(val) + 'ms';
+          if (unit === 's') return val.toFixed(1) + 's';
+          return val.toFixed(2);
+        }
+
+        function formatTarget(target, unit) {
+          if (unit === 'ms') return '< ' + target + 'ms';
+          if (unit === 's') return '< ' + target + 's';
+          return '< ' + target;
+        }
+
+        var metricsGrid = document.getElementById('metricsGrid');
+        var metricEntries = [
+          { key: 'fcp', value: fcpS },
+          { key: 'lcp', value: lcpS },
+          { key: 'cls', value: cls },
+          { key: 'tbt', value: tbtMs },
+          { key: 'si', value: speedIndexS },
+        ];
+
+        var hasMetricToImprove = false;
+        metricEntries.forEach(function (m) {
+          if (m.value === null) return;
+          var t = TARGETS[m.key];
+          if (m.value <= t.target) return;
+          hasMetricToImprove = true;
+          var card = document.createElement('div');
+          card.className = 'metric-card';
+
+          var metName = document.createElement('div');
+          metName.className = 'metric-name';
+          metName.textContent = t.label;
+          card.appendChild(metName);
+
+          var current = document.createElement('div');
+          current.className = 'metric-current ' + metricClass(m.value, t.goodMax, t.midMax);
+          current.textContent = formatVal(m.value, t.unit);
+          card.appendChild(current);
+
+          var arrow = document.createElement('div');
+          arrow.className = 'metric-arrow';
+          arrow.textContent = '↓';
+          card.appendChild(arrow);
+
+          var targetEl = document.createElement('div');
+          targetEl.className = 'metric-target';
+          targetEl.textContent = formatTarget(t.target, t.unit);
+          card.appendChild(targetEl);
+
+          var afterLabel = document.createElement('div');
+          afterLabel.className = 'metric-target-label';
+          afterLabel.textContent = 'after our changes';
+          card.appendChild(afterLabel);
+
+          var pctEl = document.createElement('div');
+          pctEl.className = 'metric-pct';
+          pctEl.textContent = '-' + pctImprovement(m.value, t.target) + '%';
+          card.appendChild(pctEl);
+
+          var fullName = document.createElement('div');
+          fullName.className = 'metric-guarantee';
+          fullName.textContent = t.fullName;
+          card.appendChild(fullName);
+
+          metricsGrid.appendChild(card);
+        });
+        if (hasMetricToImprove) {
+          var mNote = document.createElement('div');
+          mNote.className = 'after-note';
+          mNote.textContent = '// Green values = guaranteed results after our optimization';
+          metricsGrid.parentNode.appendChild(mNote);
+        }
+
+        var s = document.createElement('script');
+        s.src = 'https://assets.calendly.com/assets/external/widget.js';
+        s.async = true;
+        document.body.appendChild(s);
+      })();
+    </script>
+  </body>
+</html>
