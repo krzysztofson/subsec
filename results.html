@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://quickchart.io" />
     <link rel="dns-prefetch" href="https://assets.calendly.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap"
       rel="stylesheet"
@@ -1225,6 +1226,27 @@
         s.src = 'https://assets.calendly.com/assets/external/widget.js';
         s.async = true;
         document.body.appendChild(s);
+      })();
+    </script>
+    <script defer>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      (function () {
+        function loadGA() {
+          gtag('js', new Date());
+          gtag('config', 'G-0FPHMP823V');
+          var s = document.createElement('script');
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-0FPHMP823V';
+          s.async = true;
+          document.head.appendChild(s);
+        }
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadGA, { timeout: 3000 });
+        } else {
+          setTimeout(loadGA, 2500);
+        }
       })();
     </script>
   </body>
